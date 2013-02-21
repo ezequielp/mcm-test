@@ -3,7 +3,7 @@
 	<fieldset>
 		<legend><?php echo __('Add User'); ?></legend>
 	<?php
-		echo $this->Form->input('group_id');
+		echo $this->Form->input('group_id', array('type'=>'hidden', 'value'=>2));
 		echo $this->Form->input('Email');
 		echo $this->Form->input('username');
 		echo $this->Form->input('password');
@@ -11,9 +11,6 @@
 		echo $this->Form->input('MiddleInitial');
 		echo $this->Form->input('LastName');
 		echo $this->Form->input('Suffix');
-		echo $this->Form->input('Active');
-		echo $this->Form->input('Created');
-		echo $this->Form->input('Updated');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

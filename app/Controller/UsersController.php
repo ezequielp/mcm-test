@@ -98,4 +98,21 @@ class UsersController extends AppController {
 		$this->Session->setFlash(__('User was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
+
+	public function login() {
+	    if ($this->request->is('post')) {
+	        if ($this->Auth->login()) {
+	            return $this->redirect($this->Auth->redirectUrl());
+	        } else {
+	            $this->Session->setFlash(__('Username or password is incorrect'), 'default', array(), 'auth');
+	        }
+	    }
+	}
+	public function beforeFilter() {
+        $this->Auth->allow('add');
+    }
+
+	public function logout() {
+		$this->redirect($this->Auth->logout());
+	}
 }
